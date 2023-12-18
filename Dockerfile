@@ -1,8 +1,8 @@
-FROM node:12.2
+FROM node:16
 
 ENV HOME=/home/app
 
-RUN apt-get update
+RUN apt update
 
 COPY package.json package-lock.json $HOME/node_docker/
 
