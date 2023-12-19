@@ -31,3 +31,11 @@ jobs:
           push: false
           tags: app:latest
           file: ./Dockerfile
+
+      - name: Save Docker layers cache
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-docker-${{ hashFiles('**/Dockerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
